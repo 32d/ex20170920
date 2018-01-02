@@ -61,21 +61,13 @@ public class MainFrame extends JFrame  {
         food.setBounds(x, y, SIZE, SIZE);
         JPL.add(food);
     }
+
     public MainFrame(){
         init();
         setTitle( "貪吃蛇");
         initSnakePanel();
         Food();
         KEYLisenler();
-        JPL.add(Jlab);
-        JPL.add(Jlab2);
-        Jlab.setText("按ENTER後來開始遊戲");
-        Jlab2.setText("控制方法↑ ↓ ← → ");
-        Jlab.setBounds(150,0,500,500);
-        Jlab2.setBounds(150,50,500,500);
-        Jlab.setFont(new Font("標楷體", Font.BOLD, 16));
-        Jlab2.setFont(new Font("標楷體", Font.BOLD, 16));
-
         this.setLocationRelativeTo( null);
         this.setVisible( true);
         setResizable(false);
@@ -87,5 +79,13 @@ public class MainFrame extends JFrame  {
         JPL.setLayout( null);
         JPL.setBackground(Color. white);
         this.add(JPL);
+        JPL.add(Jlab);
+        JPL.add(Jlab2);
+        Jlab.setText("按ENTER後來開始遊戲");
+        Jlab2.setText("控制方法↑ ↓ ← → ");
+        Jlab.setBounds(150,0,500,500);
+        Jlab2.setBounds(150,50,500,500);
+        Jlab.setFont(new Font("標楷體", Font.BOLD, 16));
+        Jlab2.setFont(new Font("標楷體", Font.BOLD, 16));
     }
 }

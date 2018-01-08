@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Snake extends Thread{
     private MainFrame snake;
     private int way;
-
+    private int speed = 100;
     public int getWay() {
         return way;
     }
@@ -20,7 +20,8 @@ public class Snake extends Thread{
         while( true){
             move();
             try {
-                Thread. sleep(100);
+
+                Thread. sleep(speed);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -28,6 +29,7 @@ public class Snake extends Thread{
     }
     private void move(){
         LinkedList<JPanel> snakeBody = snake.getSnakeBody();
+        JPanel food = snake.getFood();
         JPanel JPL = snake.getJPL();//取舊頭
         JPanel oldHead = snakeBody.getLast();//取舊頭坐標
         int x = oldHead.getX();
@@ -46,15 +48,25 @@ public class Snake extends Thread{
                 y = y + snake. SIZE + 1;
                 break;
         }
+
         JPanel newHead = new JPanel();//創建新頭
         newHead.setBounds(x, y, snake. SIZE, snake. SIZE);
         newHead.setBackground(Color. red);
 
+        if(food.getX() == x && food.getY() == y){
+            snakeBody.add(newHead);
+            JPL.add(newHead);
+            JPL.remove(food);
+            snake.Food();
+        }
+        else {
+            snakeBody.add(newHead);
+            JPL.add(newHead);
+            JPL.remove(snakeBody.getFirst());//去尾
+            snakeBody.removeFirst();
 
-        snakeBody.add(newHead);
-        JPL.add(newHead);
-        JPL.remove(snakeBody.getFirst());//去尾
-        snakeBody.removeFirst();
+        }
+
 
 
         snake.repaint();

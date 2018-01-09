@@ -74,7 +74,6 @@ public class MainFrame extends JFrame  {
         initSnakePanel();
         Food();
         KEYLisenler();
-<<<<<<< HEAD
         JPL.add(Jlab);
         JPL.add(Jlab2);
         JPL.add(JScore);
@@ -87,8 +86,6 @@ public class MainFrame extends JFrame  {
         Jlab2.setBounds(150,50,500,500);
         Jlab.setFont(new Font("標楷體", Font.BOLD, 16));
         Jlab2.setFont(new Font("標楷體", Font.BOLD, 16));
-=======
->>>>>>> origin/master
         this.setLocationRelativeTo( null);
         this.setVisible( true);
         setResizable(false);

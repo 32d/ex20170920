@@ -5,10 +5,10 @@ import javax.swing.*;
 public class Snake extends Thread{
     private MainFrame snake;
     private int way;
-<<<<<<< HEAD
+
     private int speed = 100;
-=======
->>>>>>> origin/master
+
+
     public int getWay() {
         return way;
     }
@@ -60,7 +60,7 @@ public class Snake extends Thread{
                 break;
         }
 
-<<<<<<< HEAD
+
         JPanel newHead = new JPanel();//創建新頭
         newHead.setBounds(x, y, snake. SIZE, snake. SIZE);
         newHead.setBackground(Color. red);
@@ -78,18 +78,7 @@ public class Snake extends Thread{
             snakeBody.removeFirst();
 
         }
-
-=======
-        JPanel newHead = new JPanel();//創新頭
-        newHead.setBounds(x, y, snake. SIZE, snake. SIZE);
-        newHead.setBackground(Color. red);
-        snakeBody.add(newHead);
-        JPL.add(newHead);
-        JPL.remove(snakeBody.getFirst());//去尾
-        snakeBody.removeFirst();
         snake.repaint();
->>>>>>> origin/master
-
 
     }
 }

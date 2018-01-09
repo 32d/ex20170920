@@ -5,7 +5,10 @@ import javax.swing.*;
 public class Snake extends Thread{
     private MainFrame snake;
     private int way;
+<<<<<<< HEAD
     private int speed = 100;
+=======
+>>>>>>> origin/master
     public int getWay() {
         return way;
     }
@@ -15,7 +18,12 @@ public class Snake extends Thread{
     public Snake(MainFrame snake) {
         this. snake = snake;
     }
+    private int scW = Toolkit.getDefaultToolkit().getScreenSize().width;
+    private int scH = Toolkit.getDefaultToolkit().getScreenSize().height;
+    private int W = 500;
+    private int H = 500;
     @Override
+
     public void run() {
         while( true){
             move();
@@ -34,6 +42,9 @@ public class Snake extends Thread{
         JPanel oldHead = snakeBody.getLast();//取舊頭坐標
         int x = oldHead.getX();
         int y = oldHead.getY();
+
+
+
         switch( way){
             case 37:  //往左
                 x = x - ( snake. SIZE + 1);
@@ -49,6 +60,7 @@ public class Snake extends Thread{
                 break;
         }
 
+<<<<<<< HEAD
         JPanel newHead = new JPanel();//創建新頭
         newHead.setBounds(x, y, snake. SIZE, snake. SIZE);
         newHead.setBackground(Color. red);
@@ -67,8 +79,17 @@ public class Snake extends Thread{
 
         }
 
-
-
+=======
+        JPanel newHead = new JPanel();//創新頭
+        newHead.setBounds(x, y, snake. SIZE, snake. SIZE);
+        newHead.setBackground(Color. red);
+        snakeBody.add(newHead);
+        JPL.add(newHead);
+        JPL.remove(snakeBody.getFirst());//去尾
+        snakeBody.removeFirst();
         snake.repaint();
+>>>>>>> origin/master
+
+
     }
 }

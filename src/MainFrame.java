@@ -11,7 +11,7 @@ public class MainFrame extends JFrame  {
     private int scH = Toolkit.getDefaultToolkit().getScreenSize().height;
     private int W = 500;
     private int H = 500;
-    private int score =0;
+    private int score =-10;
     private JLabel Jlab = new JLabel();
     private JLabel Jlab2 = new JLabel();
     private JLabel JScore = new JLabel();
@@ -66,6 +66,8 @@ public class MainFrame extends JFrame  {
         int y = rdm.nextInt( SIZE)*16;
         food.setBounds(x, y, SIZE, SIZE);
         JPL.add(food);
+        score+=10;
+        JScore2.setText(Integer.toString(score));
     }
 
     public MainFrame(){
@@ -81,9 +83,11 @@ public class MainFrame extends JFrame  {
         Jlab.setText("按ENTER後來開始遊戲");
         Jlab2.setText("控制方法↑ ↓ ← → ");
         JScore.setText("得分：");
-        JScore2.setText("0");
+        JScore2.setText(Integer.toString(score));
         Jlab.setBounds(150,0,500,500);
         Jlab2.setBounds(150,50,500,500);
+        JScore.setBounds(150,100,500,500);
+        JScore2.setBounds(200,100,500,500);
         Jlab.setFont(new Font("標楷體", Font.BOLD, 16));
         Jlab2.setFont(new Font("標楷體", Font.BOLD, 16));
         this.setLocationRelativeTo( null);

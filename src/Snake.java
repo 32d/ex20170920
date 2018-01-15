@@ -5,10 +5,7 @@ import javax.swing.*;
 public class Snake extends Thread{
     private MainFrame snake;
     private int way;
-
-    private int speed = 100;
-
-
+    private static  int speed = 100;
     public int getWay() {
         return way;
     }
@@ -25,16 +22,20 @@ public class Snake extends Thread{
     @Override
 
     public void run() {
-        while( true){
-            move();
-            try {
 
-                Thread. sleep(speed);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            while (true) {
+                move();
+                try {
+
+                    Thread.sleep(speed);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
         }
     }
+
+
+
     private void move(){
         LinkedList<JPanel> snakeBody = snake.getSnakeBody();
         JPanel food = snake.getFood();
@@ -65,18 +66,23 @@ public class Snake extends Thread{
         newHead.setBounds(x, y, snake. SIZE, snake. SIZE);
         newHead.setBackground(Color. red);
 
+
+
+
+
         if(food.getX() == x && food.getY() == y){
             snakeBody.add(newHead);
             JPL.add(newHead);
             JPL.remove(food);
             snake.Food();
+            newHead.setBackground(Color.green);
+            speed-=1;
         }
         else {
             snakeBody.add(newHead);
             JPL.add(newHead);
             JPL.remove(snakeBody.getFirst());//去尾
             snakeBody.removeFirst();
-
         }
         snake.repaint();
 
